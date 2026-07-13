@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://inyatech.com/sitemap.xml
