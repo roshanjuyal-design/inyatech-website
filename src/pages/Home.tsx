@@ -139,7 +139,7 @@ export default function Home({ setActiveTab }: HomeProps) {
             className="inline-flex items-center space-x-2 bg-brand-primary/10 border border-brand-primary/20 rounded-full px-4 py-1.5 text-xs font-semibold text-brand-primary select-none w-fit"
           >
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Premium Software Agency</span>
+            <span>Trusted Website Development Partner</span>
           </motion.div>
 
           {/* Heading */}
@@ -147,11 +147,9 @@ export default function Home({ setActiveTab }: HomeProps) {
             variants={itemVariants}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7.5xl font-extrabold font-display leading-[1.1] md:leading-[1.05] tracking-tight text-white"
           >
-            Building Modern <br />
-            <span className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent bg-clip-text text-transparent glow-text-purple">
-              Software
-            </span> That <br />
-            Helps Businesses Grow.
+            Professional <span className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent bg-clip-text text-transparent glow-text-purple">Websites</span> <br />
+            That Help <br />
+            Businesses Grow.
           </motion.h1>
 
           {/* Subheading */}
@@ -159,7 +157,7 @@ export default function Home({ setActiveTab }: HomeProps) {
             variants={itemVariants}
             className="text-gray-400 text-base sm:text-lg md:text-xl max-w-2xl font-normal leading-relaxed"
           >
-            We design and develop modern websites, web apps, business software, and AI-powered solutions for startups, local businesses, and enterprises.
+            We design and build modern, fast, and conversion-focused business websites that help local businesses establish a strong online presence and attract more customers.
           </motion.p>
 
           {/* CTAs */}
@@ -167,21 +165,21 @@ export default function Home({ setActiveTab }: HomeProps) {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 pt-2"
           >
-            <button
-              onClick={() => setActiveTab('portfolio')}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold text-white bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-accent hover:to-brand-primary rounded-2xl shadow-xl shadow-brand-primary/20 hover:shadow-brand-accent/20 cursor-pointer transition-all duration-300 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg"
-            >
-              View My Work
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 duration-300" />
-            </button>
             <a
               href="https://wa.me/919160693693?text=Hi%20Roshan,%0A%0AI%20visited%20the%20InyaTech%20website%20and%20I'm%20interested%20in%20discussing%20a%20project.%0A%0APlease%20let%20me%20know%20when%20you're%20available.%0A%0AThank%20you."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl cursor-pointer transition-all duration-300 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20 focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold text-white bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-accent hover:to-brand-primary rounded-2xl shadow-xl shadow-brand-primary/20 hover:shadow-brand-accent/20 cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg"
             >
-              Book a Free Consultation
+              Chat on WhatsApp
             </a>
+            <button
+              onClick={() => setActiveTab('portfolio')}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl cursor-pointer transition-all duration-300 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20 focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg group"
+            >
+              Explore Portfolio
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 duration-300" />
+            </button>
           </motion.div>
         </div>
 
