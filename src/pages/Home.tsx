@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Code, Shield, Zap, Sparkles, CheckCircle, Rocket, MessageSquare, Target, Handshake, MonitorSmartphone } from 'lucide-react';
-import roshanImg from '../assets/roshan.jpg.png';
+import roshanImg from '../assets/roshdan.webp';
 import DevelopmentProcess from '../components/DevelopmentProcess';
 import IndustriesWeServe from '../components/IndustriesWeServe';
 import Faq from '../components/Faq';
@@ -244,14 +244,14 @@ export default function Home({ setActiveTab }: HomeProps) {
               className="absolute bottom-6 -right-4 md:-right-8 w-[230px] bg-[#0a0524]/80 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl flex flex-col space-y-2 text-left z-20 shadow-[0_10px_35px_rgba(0,0,0,0.5)]"
             >
               <div className="flex items-center justify-between">
-                <span className="text-[10px] uppercase font-mono tracking-wider text-brand-primary font-bold">InyaTech</span>
+                <span className="text-[10px] uppercase font-mono tracking-wider text-brand-primary font-bold">ROSHAN JUYAL</span>
                 <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-green-500/10 border border-green-500/30 text-[9px] font-bold text-green-400">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                   Available for Projects
                 </span>
               </div>
               <div className="space-y-0.5">
-                <h4 className="text-xs font-bold text-white font-display">Founder &amp; Software Developer</h4>
+                <h4 className="text-xs font-bold text-white font-display">Founder &amp; Web Developer</h4>
                 <p className="text-[10px] text-gray-400 font-semibold">InyaTech Agency</p>
               </div>
             </motion.div>

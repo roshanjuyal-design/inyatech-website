@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { CheckCircle, ArrowUpRight, Sparkles } from 'lucide-react';
-import roshanImg from '../assets/roshan.png';
+import roshanImg from '../assets/roshdan.webp';
 
 interface AboutProps {
   setActiveTab?: (tab: string) => void;
@@ -100,14 +100,14 @@ export default function About({ setActiveTab }: AboutProps) {
               className="absolute bottom-6 -right-4 md:-right-8 w-[230px] bg-[#0a0524]/80 backdrop-blur-xl border border-white/15 rounded-2xl p-4 shadow-2xl flex flex-col space-y-2 text-left z-20 shadow-[0_10px_35px_rgba(0,0,0,0.5)]"
             >
               <div className="flex items-center justify-between">
-                <span className="text-[10px] uppercase font-mono tracking-wider text-brand-primary font-bold">InyaTech</span>
+                <span className="text-[10px] uppercase font-mono tracking-wider text-brand-primary font-bold">ROSHAN JUYAL</span>
                 <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-green-500/10 border border-green-500/30 text-[9px] font-bold text-green-400">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                   Available Now
                 </span>
               </div>
               <div className="space-y-0.5">
-                <h4 className="text-xs font-bold text-white font-display">Founder &amp; Software Developer</h4>
+                <h4 className="text-xs font-bold text-white font-display">Founder &amp; Web Developer</h4>
                 <p className="text-[10px] text-gray-400 font-semibold">Available for New Projects</p>
               </div>
             </motion.div>
