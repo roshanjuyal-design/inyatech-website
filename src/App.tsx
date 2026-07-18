@@ -4,9 +4,9 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import BackgroundEffect from './components/BackgroundEffect';
 import { initAnalytics, trackPageView } from './utils/analytics';
+import Home from './pages/Home';
 
 // Lazy-loaded page components for code splitting
-const Home = lazy(() => import('./pages/Home'));
 const Services = lazy(() => import('./pages/Services'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
 const About = lazy(() => import('./pages/About'));

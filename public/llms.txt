@@ -1,0 +1,11 @@
+# InyaTech
+
+InyaTech is a premium web development agency specializing in building modern, fast, and conversion-focused business websites and applications.
+
+## Key Resources
+
+- [Home](https://inyatech.com/) - Main landing page showcasing our design standards, client trust elements, and core capabilities.
+- [Services](https://inyatech.com/services) - Comprehensive list of software development, UI/UX, and technology integration services.
+- [Portfolio](https://inyatech.com/portfolio) - Showcase of premium web designs, interactive mockups, and client case studies.
+- [About Us](https://inyatech.com/about) - Agency background, modern tech stack alignment, and developer profile.
+- [Contact](https://inyatech.com/contact) - Contact form and direct communication channels.

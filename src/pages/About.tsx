@@ -11,16 +11,16 @@ export default function About({ setActiveTab }: AboutProps) {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: 0.1 }
+      transition: { staggerChildren: 0.04, delayChildren: 0.05 }
     }
   };
 
   const itemVariants = {
-    hidden: { y: 25, opacity: 0 },
+    hidden: { y: 15, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { type: 'spring' as const, stiffness: 85, damping: 18 }
+      transition: { type: 'spring' as const, stiffness: 125, damping: 20 }
     }
   };
 
@@ -107,7 +107,7 @@ export default function About({ setActiveTab }: AboutProps) {
                 </span>
               </div>
               <div className="space-y-0.5">
-                <h4 className="text-xs font-bold text-white font-display">Founder &amp; Web Developer</h4>
+                <p className="text-xs font-bold text-white font-display">Founder &amp; Web Developer</p>
                 <p className="text-[10px] text-gray-400 font-semibold">Available for New Projects</p>
               </div>
             </motion.div>

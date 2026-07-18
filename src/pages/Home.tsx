@@ -15,16 +15,16 @@ export default function Home({ setActiveTab }: HomeProps) {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: 0.1 }
+      transition: { staggerChildren: 0.04, delayChildren: 0.05 }
     }
   };
 
   const itemVariants = {
-    hidden: { y: 25, opacity: 0 },
+    hidden: { y: 15, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { type: 'spring' as const, stiffness: 90, damping: 18 }
+      transition: { type: 'spring' as const, stiffness: 125, damping: 20 }
     }
   };
 
@@ -251,7 +251,7 @@ export default function Home({ setActiveTab }: HomeProps) {
                 </span>
               </div>
               <div className="space-y-0.5">
-                <h4 className="text-xs font-bold text-white font-display">Founder &amp; Web Developer</h4>
+                <p className="text-xs font-bold text-white font-display">Founder &amp; Web Developer</p>
                 <p className="text-[10px] text-gray-400 font-semibold">InyaTech Agency</p>
               </div>
             </motion.div>
@@ -456,22 +456,22 @@ export default function Home({ setActiveTab }: HomeProps) {
               setActiveTab('portfolio');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                setActiveTab('portfolio');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }
-            }}
-            className="bg-white/[0.01] border border-white/[0.06] hover:border-brand-primary/20 backdrop-blur-md rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.01] hover:-translate-y-1 shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg"
-            tabIndex={0}
-            role="button"
-            aria-label="View Business Website Showcase"
+            className="bg-white/[0.01] border border-white/[0.06] hover:border-brand-primary/20 backdrop-blur-md rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.01] hover:-translate-y-1 shadow-2xl"
           >
             <div className="h-64 bg-gradient-to-tr from-brand-primary/30 to-brand-secondary/30 relative overflow-hidden flex items-center justify-center">
               <span className="text-white font-display font-semibold text-lg opacity-85 group-hover:scale-105 transition-transform duration-500 select-none">Business Website Showcase</span>
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-xs font-bold text-white bg-brand-primary/95 px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-brand-primary/25">View Details</span>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveTab('portfolio');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="text-xs font-bold text-white bg-brand-primary/95 px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-brand-primary/25 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                  aria-label="Business Website Showcase - View Details"
+                >
+                  View Details
+                </button>
               </div>
             </div>
             <div className="p-6 text-left space-y-2">
@@ -486,22 +486,22 @@ export default function Home({ setActiveTab }: HomeProps) {
               setActiveTab('portfolio');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                setActiveTab('portfolio');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }
-            }}
-            className="bg-white/[0.01] border border-white/[0.06] hover:border-brand-accent/20 backdrop-blur-md rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.01] hover:-translate-y-1 shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg"
-            tabIndex={0}
-            role="button"
-            aria-label="View Developer Portfolio Showcase"
+            className="bg-white/[0.01] border border-white/[0.06] hover:border-brand-accent/20 backdrop-blur-md rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.01] hover:-translate-y-1 shadow-2xl"
           >
             <div className="h-64 bg-gradient-to-tr from-brand-accent/30 to-brand-primary/30 relative overflow-hidden flex items-center justify-center">
               <span className="text-white font-display font-semibold text-lg opacity-85 group-hover:scale-105 transition-transform duration-500 select-none">Developer Portfolio Showcase</span>
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-xs font-bold text-white bg-brand-accent/95 px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-brand-accent/25">View Details</span>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveTab('portfolio');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="text-xs font-bold text-white bg-brand-accent/95 px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-brand-accent/25 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                  aria-label="Developer Portfolio Showcase - View Details"
+                >
+                  View Details
+                </button>
               </div>
             </div>
             <div className="p-6 text-left space-y-2">

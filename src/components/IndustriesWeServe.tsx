@@ -131,7 +131,7 @@ export default function IndustriesWeServe() {
             {/* solutions badge */}
             <div className="pt-4 mt-4 border-t border-white/5 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse shrink-0" />
-              <span className="text-[9.5px] font-semibold font-mono text-gray-500 uppercase tracking-wider group-hover:text-green-400 transition-colors duration-300">
+              <span className="text-[9.5px] font-semibold font-mono text-gray-400 uppercase tracking-wider group-hover:text-green-400 transition-colors duration-300">
                 Website Solutions Available
               </span>
             </div>
