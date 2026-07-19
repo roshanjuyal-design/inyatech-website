@@ -1,12 +1,9 @@
 import { motion } from 'framer-motion';
 import { CheckCircle, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import roshanImg from '../assets/roshdan.webp';
 
-interface AboutProps {
-  setActiveTab?: (tab: string) => void;
-}
-
-export default function About({ setActiveTab }: AboutProps) {
+export default function About() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -188,13 +185,13 @@ export default function About({ setActiveTab }: AboutProps) {
 
           {/* CTA Button */}
           <div className="pt-6">
-            <button
-              onClick={() => setActiveTab && setActiveTab('contact')}
-              className="inline-flex items-center gap-2.5 px-8 py-4 font-bold text-white bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent hover:from-brand-accent hover:to-brand-primary rounded-2xl shadow-xl shadow-brand-primary/10 hover:shadow-brand-accent/25 hover:scale-[1.02] transition-all duration-300 cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg"
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2.5 px-8 py-4 font-bold text-white bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent hover:from-brand-accent hover:to-brand-primary rounded-2xl shadow-xl shadow-brand-primary/10 hover:shadow-brand-accent/25 hover:scale-[1.02] transition-all duration-300 cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg text-center"
             >
               Let's Build Something Great Together
               <ArrowUpRight className="w-4.5 h-4.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-300" />
-            </button>
+            </Link>
           </div>
         </motion.div>
       </div>

@@ -1,14 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight, Cpu } from 'lucide-react';
+import { Link, NavLink } from 'react-router-dom';
 import { cn } from '../utils/cn';
 
-interface NavbarProps {
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
-}
-
-export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
@@ -25,8 +21,9 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 rounded-2xl bg-[#0a0524]/60 backdrop-blur-xl border border-white/[0.08] relative shadow-lg">
           
           {/* Logo */}
-          <button 
-            onClick={() => { setActiveTab('home'); setIsOpen(false); }}
+          <Link 
+            to="/"
+            onClick={() => setIsOpen(false)}
             className="flex items-center space-x-2 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg rounded-xl"
             aria-label="InyaTech Home"
           >
@@ -39,42 +36,46 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
             <span className="text-xl font-bold font-display tracking-tight bg-gradient-to-r from-white via-white to-gray-400 bg-clip-text text-transparent group-hover:glow-text-purple transition-all duration-300">
               Inya<span className="text-brand-primary">Tech</span>
             </span>
-          </button>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-1">
             {menuItems.map((item) => (
-              <button
+              <NavLink
                 key={item.id}
-                onClick={() => setActiveTab(item.id)}
-                className={cn(
+                to={item.id === 'home' ? '/' : `/${item.id}`}
+                className={({ isActive }) => cn(
                   "relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg",
-                  activeTab === item.id ? "text-white" : "text-gray-400 hover:text-white"
+                  isActive ? "text-white" : "text-gray-400 hover:text-white"
                 )}
               >
-                {activeTab === item.id && (
-                  <motion.div
-                    layoutId="activeNavBackground"
-                    className="absolute inset-0 bg-white/5 rounded-lg border border-white/10"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
+                {({ isActive }) => (
+                  <>
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeNavBackground"
+                        className="absolute inset-0 bg-white/5 rounded-lg border border-white/10"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                    {item.label}
+                  </>
                 )}
-                {item.label}
-              </button>
+              </NavLink>
             ))}
           </div>
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
-            <button
-              onClick={() => setActiveTab('contact')}
+            <Link
+              to="/contact"
               className="relative inline-flex items-center justify-center px-5 py-2 text-sm font-semibold text-white transition-all duration-300 rounded-xl bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-accent hover:to-brand-primary shadow-lg shadow-brand-primary/20 hover:shadow-brand-accent/20 cursor-pointer overflow-hidden group hover:shadow-[0_0_20px_rgba(139,92,246,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg"
             >
               <span className="relative z-10 flex items-center gap-1">
                 Book a Call <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-300" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-brand-accent to-brand-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -105,32 +106,28 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
           >
             <div className="bg-[#0a0524]/95 backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 flex flex-col space-y-4 shadow-xl">
               {menuItems.map((item) => (
-                <button
+                <NavLink
                   key={item.id}
-                  onClick={() => {
-                    setActiveTab(item.id);
-                    setIsOpen(false);
-                  }}
-                  className={cn(
+                  to={item.id === 'home' ? '/' : `/${item.id}`}
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) => cn(
                     "text-left py-2 px-4 rounded-lg transition-all duration-200 text-base font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary",
-                    activeTab === item.id
+                    isActive
                       ? "bg-brand-primary/10 text-brand-primary border-l-2 border-brand-primary"
                       : "text-gray-300 hover:bg-white/5 hover:text-white"
                   )}
                 >
                   {item.label}
-                </button>
+                </NavLink>
               ))}
               <hr className="border-white/10" />
-              <button
-                onClick={() => {
-                  setActiveTab('contact');
-                  setIsOpen(false);
-                }}
+              <Link
+                to="/contact"
+                onClick={() => setIsOpen(false)}
                 className="w-full flex items-center justify-center gap-1 py-3 font-semibold text-white rounded-xl bg-gradient-to-r from-brand-primary to-brand-secondary shadow-[0_0_15px_rgba(139,92,246,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0524]"
               >
                 Book a Call <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
           </motion.div>
         )}

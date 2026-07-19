@@ -1,16 +1,13 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Code, Shield, Zap, Sparkles, CheckCircle, Rocket, MessageSquare, Target, Handshake, MonitorSmartphone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import roshanImg from '../assets/roshdan.webp';
 import DevelopmentProcess from '../components/DevelopmentProcess';
 import IndustriesWeServe from '../components/IndustriesWeServe';
 import Faq from '../components/Faq';
 import FinalCta from '../components/FinalCta';
 
-interface HomeProps {
-  setActiveTab: (tab: string) => void;
-}
-
-export default function Home({ setActiveTab }: HomeProps) {
+export default function Home() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -173,13 +170,13 @@ export default function Home({ setActiveTab }: HomeProps) {
             >
               Chat on WhatsApp
             </a>
-            <button
-              onClick={() => setActiveTab('portfolio')}
+            <Link
+              to="/portfolio"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl cursor-pointer transition-all duration-300 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20 focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg group"
             >
               Explore Portfolio
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 duration-300" />
-            </button>
+            </Link>
           </motion.div>
         </div>
 
@@ -355,123 +352,67 @@ export default function Home({ setActiveTab }: HomeProps) {
             From architecture planning to UI designs and custom model deployments, we support you through every stage of development.
           </p>
           <div>
-            <button
-              onClick={() => {
-                setActiveTab('services');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
+            <Link
+              to="/services"
               className="inline-flex items-center gap-1.5 text-brand-primary font-semibold hover:text-brand-accent transition-colors group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded-lg px-2 py-1"
             >
               View all services 
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 duration-300" />
-            </button>
+            </Link>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="p-6 bg-white/[0.02] border border-white/[0.06] rounded-2xl hover:border-brand-primary/30 transition-all duration-300 hover:bg-white/[0.04]">
-            <h3 className="font-semibold text-white mb-2 text-sm font-display">Enterprise Web Apps</h3>
-            <p className="text-gray-400 text-xs leading-relaxed font-sans">Highly responsive systems utilizing modern React stack.</p>
-          </div>
-          <div className="p-6 bg-white/[0.02] border border-white/[0.06] rounded-2xl hover:border-brand-secondary/30 transition-all duration-300 hover:bg-white/[0.04]">
-            <h3 className="font-semibold text-white mb-2 text-sm font-display">Cloud Infrastructure</h3>
-            <p className="text-gray-400 text-xs leading-relaxed font-sans">Secure server configurations and serverless APIs.</p>
-          </div>
-          <div className="p-6 bg-white/[0.02] border border-white/[0.06] rounded-2xl hover:border-brand-accent/30 transition-all duration-300 hover:bg-white/[0.04]">
-            <h3 className="font-semibold text-white mb-2 text-sm font-display">Custom AI Solutions</h3>
-            <p className="text-gray-400 text-xs leading-relaxed font-sans">LLM integrations, agentic workflows, and pipelines.</p>
-          </div>
-          <div className="p-6 bg-white/[0.02] border border-white/[0.06] rounded-2xl hover:border-white/20 transition-all duration-300 hover:bg-white/[0.04]">
-            <h3 className="font-semibold text-white mb-2 text-sm font-display">Branding & UI/UX</h3>
-            <p className="text-gray-400 text-xs leading-relaxed font-sans">Vibrant dark interfaces that capture attention.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* NEW SECTION: WHY CHOOSE INYATECH */}
-      <section className="space-y-12">
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <motion.div 
-            variants={itemVariants}
-            className="inline-flex items-center space-x-2 bg-brand-primary/10 border border-brand-primary/20 rounded-full px-4.5 py-1.5 text-xs font-semibold text-brand-primary select-none w-fit"
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Why Us</span>
-          </motion.div>
-          <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold font-display text-white tracking-tight">Why Choose InyaTech?</motion.h2>
-          <motion.p variants={itemVariants} className="text-gray-400 text-sm md:text-base leading-relaxed font-sans max-w-2xl mx-auto">
-            We don't just build websites. We build digital experiences that help businesses establish trust, attract customers, and grow online.
-          </motion.p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="space-y-6">
           {whyChooseItems.map((item, idx) => (
-            <motion.div
+            <div 
               key={idx}
-              variants={itemVariants}
-              className="bg-white/[0.01] border border-white/[0.06] hover:border-white/15 backdrop-blur-md rounded-[24px] p-8 text-left space-y-5 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1.5 hover:bg-white/[0.03] relative group overflow-hidden shadow-2xl"
+              className="flex items-start gap-4 p-4.5 rounded-2xl border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.03] transition-colors relative group"
             >
-              {/* Hover Glow */}
               <div 
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none -z-10"
-                style={{
-                  background: `radial-gradient(circle 200px at 50% 0%, ${item.glowColor}, transparent 80%)`
-                }}
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"
+                style={{ background: `radial-gradient(circle 80px at 20px 20px, ${item.glowColor}, transparent 80%)` }}
               />
-              <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center border transition-transform group-hover:scale-110 duration-500 ${item.iconBg}`}>
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border transition-all duration-300 ${item.iconBg}`}>
                 {item.icon}
               </div>
-              <div className="space-y-2">
-                <h3 className="text-lg font-bold text-white tracking-tight font-display">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed font-sans">{item.description}</p>
+              <div className="space-y-1">
+                <h3 className="text-sm font-bold text-white tracking-tight leading-none pt-0.5">{item.title}</h3>
+                <p className="text-xs text-gray-400 leading-relaxed font-sans">{item.description}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* PORTFOLIO CALLOUT SECTION */}
+      {/* PORTFOLIO SECTION */}
       <section className="space-y-12">
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
-          <div className="text-left space-y-3">
-            <h2 className="text-3xl md:text-4xl font-bold font-display tracking-tight text-white">Featured Projects</h2>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 text-left">
+          <div className="space-y-4 max-w-xl">
+            <div className="inline-flex items-center space-x-2 bg-brand-primary/10 border border-brand-primary/20 rounded-full px-4 py-1.5 text-xs font-semibold text-brand-primary select-none w-fit">
+              <span>Featured Work</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold font-display tracking-tight text-white">Recent Case Studies</h2>
             <p className="text-gray-400 text-sm md:text-base leading-relaxed">Explore a collection of modern website designs created to showcase the quality, creativity, and performance standards of InyaTech.</p>
           </div>
-          <button
-            onClick={() => {
-              setActiveTab('portfolio');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 font-semibold text-sm text-white transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg"
+          <Link
+            to="/portfolio"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 font-semibold text-sm text-white transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg text-center"
           >
             Explore Portfolio <ArrowRight className="w-4 h-4 ml-1" />
-          </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div 
-            onClick={() => {
-              setActiveTab('portfolio');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="bg-white/[0.01] border border-white/[0.06] hover:border-brand-primary/20 backdrop-blur-md rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.01] hover:-translate-y-1 shadow-2xl"
+          <Link 
+            to="/portfolio"
+            className="bg-white/[0.01] border border-white/[0.06] hover:border-brand-primary/20 backdrop-blur-md rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.01] hover:-translate-y-1 shadow-2xl block"
           >
             <div className="h-64 bg-gradient-to-tr from-brand-primary/30 to-brand-secondary/30 relative overflow-hidden flex items-center justify-center">
               <span className="text-white font-display font-semibold text-lg opacity-85 group-hover:scale-105 transition-transform duration-500 select-none">Business Website Showcase</span>
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setActiveTab('portfolio');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className="text-xs font-bold text-white bg-brand-primary/95 px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-brand-primary/25 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-                  aria-label="Business Website Showcase - View Details"
-                >
+                <span className="text-xs font-bold text-white bg-brand-primary/95 px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-brand-primary/25">
                   View Details
-                </button>
+                </span>
               </div>
             </div>
             <div className="p-6 text-left space-y-2">
@@ -479,29 +420,18 @@ export default function Home({ setActiveTab }: HomeProps) {
               <h3 className="text-xl font-bold text-white tracking-tight font-display">Business Website</h3>
               <p className="text-gray-400 text-sm font-sans">A premium corporate website template featuring high-conversion landing page layouts and professional branding.</p>
             </div>
-          </div>
+          </Link>
 
-          <div 
-            onClick={() => {
-              setActiveTab('portfolio');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="bg-white/[0.01] border border-white/[0.06] hover:border-brand-accent/20 backdrop-blur-md rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.01] hover:-translate-y-1 shadow-2xl"
+          <Link 
+            to="/portfolio"
+            className="bg-white/[0.01] border border-white/[0.06] hover:border-brand-accent/20 backdrop-blur-md rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.01] hover:-translate-y-1 shadow-2xl block"
           >
             <div className="h-64 bg-gradient-to-tr from-brand-accent/30 to-brand-primary/30 relative overflow-hidden flex items-center justify-center">
               <span className="text-white font-display font-semibold text-lg opacity-85 group-hover:scale-105 transition-transform duration-500 select-none">Developer Portfolio Showcase</span>
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setActiveTab('portfolio');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className="text-xs font-bold text-white bg-brand-accent/95 px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-brand-accent/25 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-                  aria-label="Developer Portfolio Showcase - View Details"
-                >
+                <span className="text-xs font-bold text-white bg-brand-accent/95 px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-brand-accent/25">
                   View Details
-                </button>
+                </span>
               </div>
             </div>
             <div className="p-6 text-left space-y-2">
@@ -509,7 +439,7 @@ export default function Home({ setActiveTab }: HomeProps) {
               <h3 className="text-xl font-bold text-white tracking-tight font-display">Portfolio Website</h3>
               <p className="text-gray-400 text-sm font-sans">An ultra-premium personal portfolio template featuring dynamic project filtering and case study modal transitions.</p>
             </div>
-          </div>
+          </Link>
         </div>
       </section>
 
@@ -523,7 +453,7 @@ export default function Home({ setActiveTab }: HomeProps) {
       <Faq />
 
       {/* FINAL CALL TO ACTION SECTION */}
-      <FinalCta setActiveTab={setActiveTab} />
+      <FinalCta />
       
     </motion.div>
   );

@@ -1,12 +1,9 @@
 import { motion } from 'framer-motion';
 import { Cpu, Phone, Mail, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { cn } from '../utils/cn';
 
-interface FooterProps {
-  setActiveTab: (tab: string) => void;
-}
-
-export default function Footer({ setActiveTab }: FooterProps) {
+export default function Footer() {
   const navLinks = [
     { id: 'home', label: 'Home' },
     { id: 'services', label: 'Services' },
@@ -124,11 +121,8 @@ export default function Footer({ setActiveTab }: FooterProps) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Column 1: Company Logo & Description */}
           <motion.div className="space-y-6" variants={itemVariants}>
-            <button
-              onClick={() => {
-                setActiveTab('home');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
+            <Link
+              to="/"
               className="flex items-center space-x-2 group cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg rounded-xl"
               aria-label="InyaTech Logo, Back to Home"
             >
@@ -141,7 +135,7 @@ export default function Footer({ setActiveTab }: FooterProps) {
               <span className="text-xl font-bold font-display tracking-tight bg-gradient-to-r from-white via-white to-gray-400 bg-clip-text text-transparent group-hover:glow-text-purple transition-all duration-300">
                 Inya<span className="text-brand-primary">Tech</span>
               </span>
-            </button>
+            </Link>
 
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
               Building modern websites, web applications, and business software that help businesses grow.
@@ -152,7 +146,7 @@ export default function Footer({ setActiveTab }: FooterProps) {
                 href="https://wa.me/919160693693?text=Hi%20Roshan,%0A%0AI%20visited%20the%20InyaTech%20website%20and%20I'm%20interested%20in%20discussing%20a%20project.%0A%0APlease%20let%20me%20know%20when%20you're%20available.%0A%0AThank%20you."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#22c55e]/10 border border-[#22c55e]/20 text-[#22c55e] hover:bg-[#22c55e] hover:text-white hover:shadow-[0_0_20px_rgba(34,197,94,0.35)] hover:scale-102 transition-all duration-300 text-xs font-semibold group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#22c55e] focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg"
+                className="inline-flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#22c55e]/10 border border-[#22c55e]/20 text-[#22c55e] hover:bg-[#22c55e] hover:text-white hover:shadow-[0_0_20px_rgba(34,197,94,0.35)] hover:scale-102 transition-all duration-300 text-xs font-semibold group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#22c55e] focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg"
               >
                 <svg className="w-4 h-4 fill-current group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.5-5.713-1.448L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.003-2.637-1.023-5.118-2.882-6.98-1.859-1.862-4.343-2.887-6.984-2.888-5.439 0-9.865 4.42-9.869 9.865-.001 1.716.448 3.39 1.3 4.87l-.479 1.753 1.82-.478zm10.87-4.108c-.294-.148-1.74-.858-2.01-.956-.27-.098-.467-.147-.662.146-.196.293-.76.955-.932 1.15-.171.195-.343.22-.637.073-.295-.148-1.245-.459-2.37-1.465-.877-.782-1.47-1.747-1.64-2.04-.173-.294-.018-.453.13-.6.132-.133.294-.347.442-.52.146-.173.196-.296.294-.493.097-.197.049-.37-.024-.517-.074-.148-.662-1.595-.91-2.186-.24-.58-.487-.5-.668-.51-.173-.008-.37-.01-.568-.01-.197 0-.52.073-.79.37-.27.295-1.03 1.015-1.03 2.476 0 1.461 1.063 2.87 1.21 3.067.147.195 2.09 3.195 5.068 4.482.708.306 1.26.488 1.69.624.71.226 1.357.194 1.867.118.568-.085 1.74-.717 1.987-1.408.247-.693.247-1.288.172-1.411-.074-.123-.27-.196-.564-.345z" />
@@ -178,16 +172,13 @@ export default function Footer({ setActiveTab }: FooterProps) {
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.id}>
-                  <button
-                    onClick={() => {
-                      setActiveTab(link.id);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+                  <Link
+                    to={link.id === 'home' ? '/' : `/${link.id}`}
                     className="text-gray-400 hover:text-white text-sm transition-all duration-300 cursor-pointer flex items-center group/link hover:translate-x-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg rounded-md"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-brand-primary scale-0 group-hover/link:scale-100 transition-transform duration-300 mr-2" />
                     {link.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -213,16 +204,13 @@ export default function Footer({ setActiveTab }: FooterProps) {
                       </span>
                     </div>
                   ) : (
-                    <button
-                      onClick={() => {
-                        setActiveTab('services');
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                      }}
+                    <Link
+                      to="/services"
                       className="text-gray-400 hover:text-white text-sm transition-all duration-300 cursor-pointer flex items-center group/link hover:translate-x-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg rounded-md"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-secondary scale-0 group-hover/link:scale-100 transition-transform duration-300 mr-2" />
                       {service.label}
-                    </button>
+                    </Link>
                   )}
                 </li>
               ))}

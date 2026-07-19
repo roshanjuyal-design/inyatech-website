@@ -1,5 +1,6 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import BackgroundEffect from './components/BackgroundEffect';
@@ -29,35 +30,18 @@ function LoadingFallback() {
 }
 
 function App() {
-  const [activeTab, setActiveTab] = useState('home');
+  const location = useLocation();
 
   // Initialize analytics on mount
   useEffect(() => {
     initAnalytics();
   }, []);
 
-  // Scroll to top and track page view on tab change
+  // Scroll to top and track page view on pathname change
   useEffect(() => {
     window.scrollTo(0, 0);
-    trackPageView(activeTab);
-  }, [activeTab]);
-
-  const renderPage = () => {
-    switch (activeTab) {
-      case 'home':
-        return <Home key="home" setActiveTab={setActiveTab} />;
-      case 'services':
-        return <Services key="services" setActiveTab={setActiveTab} />;
-      case 'portfolio':
-        return <Portfolio key="portfolio" />;
-      case 'about':
-        return <About key="about" setActiveTab={setActiveTab} />;
-      case 'contact':
-        return <Contact key="contact" />;
-      default:
-        return <Home key="home" setActiveTab={setActiveTab} />;
-    }
-  };
+    trackPageView(location.pathname);
+  }, [location.pathname]);
 
   const pageTransitionVariants = {
     initial: {
@@ -88,27 +72,33 @@ function App() {
       <BackgroundEffect />
 
       {/* Persistent Navigation */}
-      <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Navbar />
 
       {/* Main Content Area with Page Animations */}
       <main className="flex-grow pb-16">
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeTab}
+            key={location.pathname}
             initial="initial"
             animate="animate"
             exit="exit"
             variants={pageTransitionVariants}
           >
             <Suspense fallback={<LoadingFallback />}>
-              {renderPage()}
+              <Routes location={location}>
+                <Route path="/" element={<Home />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
             </Suspense>
           </motion.div>
         </AnimatePresence>
       </main>
 
       {/* Premium Footer */}
-      <Footer setActiveTab={setActiveTab} />
+      <Footer />
 
       {/* Floating WhatsApp Button */}
       <div className="fixed bottom-6 right-6 z-40 group flex items-center justify-end">

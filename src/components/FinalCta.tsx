@@ -1,9 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, Sparkles } from 'lucide-react';
-
-interface FinalCtaProps {
-  setActiveTab: (tab: string) => void;
-}
+import { Link } from 'react-router-dom';
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -14,7 +11,7 @@ const itemVariants = {
   }
 };
 
-export default function FinalCta({ setActiveTab }: FinalCtaProps) {
+export default function FinalCta() {
   const features = [
     'Free Consultation',
     'Mobile-Friendly Website',
@@ -98,15 +95,12 @@ export default function FinalCta({ setActiveTab }: FinalCtaProps) {
           </a>
 
           {/* Secondary CTA */}
-          <button
-            onClick={() => {
-              setActiveTab('portfolio');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 font-bold text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl cursor-pointer transition-all duration-300 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+          <Link
+            to="/portfolio"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 font-bold text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl cursor-pointer transition-all duration-300 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary text-center"
           >
             View Portfolio
-          </button>
+          </Link>
         </div>
       </motion.div>
     </section>

@@ -1,11 +1,8 @@
 import { motion } from 'framer-motion';
 import { Globe, Code2, Workflow, Brain, Gauge, Shield, ArrowRight, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-interface ServicesProps {
-  setActiveTab?: (tab: string) => void;
-}
-
-export default function Services({ setActiveTab }: ServicesProps) {
+export default function Services() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -86,7 +83,7 @@ export default function Services({ setActiveTab }: ServicesProps) {
       tech: ["Monitoring", "Backups", "SLA Support", "Security Audits", "Fixes"],
       glowColor: "rgba(6, 182, 212, 0.15)", // Cyan
       accentColor: "text-cyan-400",
-      iconBg: "bg-cyan-500/10 border-cyan-500/20 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-white group-hover:shadow-[0_0_20px_rgba(6,182,212,0.4)]",
+      iconBg: "bg-cyan-500/10 border-cyan-500/20 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-white group-hover:shadow-[0_0_20px_rgba(6, 182, 212, 0.4)]",
     }
   ];
 
@@ -204,13 +201,13 @@ export default function Services({ setActiveTab }: ServicesProps) {
           transition={{ duration: 0.6 }}
           className="text-center space-y-6 max-w-lg"
         >
-          <button
-            onClick={() => setActiveTab && setActiveTab('contact')}
-            className="inline-flex items-center gap-3 px-9 py-4.5 rounded-2xl font-bold text-white bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent hover:from-brand-accent hover:via-brand-primary hover:to-brand-secondary shadow-[0_0_30px_rgba(139,92,246,0.15)] hover:shadow-[0_0_40px_rgba(139,92,246,0.35)] hover:scale-[1.02] transition-all duration-300 cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg"
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-3 px-9 py-4.5 rounded-2xl font-bold text-white bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent hover:from-brand-accent hover:via-brand-primary hover:to-brand-secondary shadow-[0_0_30px_rgba(139,92,246,0.15)] hover:shadow-[0_0_40px_rgba(139,92,246,0.35)] hover:scale-[1.02] transition-all duration-300 cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg text-center"
           >
             Let's Build Your Project
             <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1.5 transition-transform duration-300" />
-          </button>
+          </Link>
         </motion.div>
       </section>
     </motion.div>
