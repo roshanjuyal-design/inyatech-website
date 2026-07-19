@@ -15,7 +15,8 @@ const Portfolio = lazy(() => import('./pages/Portfolio'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const AdminLogin = lazy(() => import('./pages/admin/Login'));
-const AdminDashboard = lazy(() => import('./pages/admin/Dashboard'));
+const AdminLayout = lazy(() => import('./components/admin/AdminLayout'));
+const DashboardHome = lazy(() => import('./pages/admin/DashboardHome'));
 
 function LoadingFallback() {
   return (
@@ -86,7 +87,28 @@ function App() {
             <Routes>
               <Route path="/admin/login" element={<AdminLogin />} />
               <Route element={<ProtectedRoute />}>
-                <Route path="/admin" element={<AdminDashboard />} />
+                <Route element={<AdminLayout />}>
+                  <Route index element={<DashboardHome />} />
+                  {/* Sub-panel placeholders for seamless testing of navigation paths */}
+                  <Route path="/admin/projects" element={
+                    <div className="text-left space-y-4">
+                      <h2 className="text-xl font-bold font-display">Projects Control Panel</h2>
+                      <p className="text-gray-400 text-sm font-sans">Manage cases, client showcases, and media assets (under construction).</p>
+                    </div>
+                  } />
+                  <Route path="/admin/services" element={
+                    <div className="text-left space-y-4">
+                      <h2 className="text-xl font-bold font-display">Services Control Panel</h2>
+                      <p className="text-gray-400 text-sm font-sans">Manage categories, features, and active metrics (under construction).</p>
+                    </div>
+                  } />
+                  <Route path="/admin/settings" element={
+                    <div className="text-left space-y-4">
+                      <h2 className="text-xl font-bold font-display">System Settings</h2>
+                      <p className="text-gray-400 text-sm font-sans">Configure administrative profiles and system-wide variables (under construction).</p>
+                    </div>
+                  } />
+                </Route>
               </Route>
             </Routes>
           </Suspense>
